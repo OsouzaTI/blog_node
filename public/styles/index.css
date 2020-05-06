@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300&display=swap');
+@font-face {
+    font-family: "ethnocentric";
+    src: url('ethnocentric-rg.ttf');
+}
+
+
+html , body{
+    width: 100%;
+}
+.site-geral {
+    font-size: 18px;
+    font-family: "ethnocentric";
+}
+
+.data {
+    border-radius:  15px;
+    color: white;
+}
+
+.t-font1{
+    font-size: 10vh;
+}
+
+.navIcon{
+    width: 30px;
+    height: 30px;
+}
+
+.lb{
+    font-family: 'DM Mono', monospace;
+    padding: 10px 0px 10px 0px;
+}

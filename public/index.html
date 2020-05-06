@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-dark h-100">
+    <head>
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <!-- Jquery -->
+        <script src="/jquery/jquery.js"></script>
+        <!-- Header -->
+        <script>
+            $(function(){  
+
+                let _GetValues = () => {
+                    var query = location.search.slice(1);
+                    var partes = query.split('&');
+                    var data = {};
+                    partes.forEach(function (parte) {
+                        var chaveValor = parte.split('=');
+                        var chave = chaveValor[0];
+                        var valor = chaveValor[1];
+                        data[chave] = valor;
+                    });
+                    return data;
+                }
+                let query = _GetValues();
+
+                $("#header").load("./header/header.html");                
+                $("#footer").load("./header/scripts.html");   
+                $("#formulario").load(`./Banco/atv${query["search"]}.html`);  
+
+                setTimeout(() => {
+                    if($("#formulario").html() == '')
+                        $("#formulario").load("./error404.html");
+                }, 1000);                
+
+             });
+        </script>
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="\bootstrap/css/bootstrap.css">
+        <link rel="stylesheet" href="\styles/index.css">
+        <link rel="stylesheet" href="\font-awesome/css/font-awesome.css">
+        <title>Home</title>
+    </head>
+
+    <body class="w-100 h-100 bg-primary">        
+        <div id="header"></div>
+
+        <div class="mt-4">
+            <div id="formulario" class="bg-white w-75 p-4" style="margin: 0 auto;border-radius:15px;min-height: 600px;"></div>
+        </div>
+
+        <div id="footer"></div>       
+    </body>
+
+    <footer>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Gabarito das respostas</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <div id="respostas"></div>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+</html>
