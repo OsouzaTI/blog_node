@@ -10,7 +10,7 @@
   "author": "Osouza",
   "license": "ISC",
   "dependencies": {
-    "bootstrap": "^4.0.0",
+    "bootstrap": "^4.3.1",
     "cors": "^2.8.5",
     "dependencies": "0.0.1",
     "express": "^4.17.1"
